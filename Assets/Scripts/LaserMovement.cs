@@ -14,6 +14,11 @@ public class LaserMovement : MonoBehaviour
     void Update()
     {
         //rörelse uppåt
-            transform.Translate(Vector2.up * laserSpeed * Time.deltaTime);
+        transform.Translate(Vector2.up * laserSpeed * Time.deltaTime);
+
+        if (transform.position.y > 8)
+        {
+            Destroy(gameObject);
+        }
     }
 }

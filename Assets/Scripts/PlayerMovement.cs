@@ -3,9 +3,25 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
+    //möjligför att laser kan skapas med mellaslag
     public GameObject laserShot;
     //variabel playerSpeed defineras
     public float playerSpeed = 1;
+    //skapa healthPoints
+    public float healthPoints = 5;
+
+    //kopierat 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.name);
+
+        if (other.name == "Enemy1")
+        {
+            healthPoints--;
+        }
+    }
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,5 +60,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             this.transform.position = new Vector2(8, -4);
         }
+
+
+
     }
 }
